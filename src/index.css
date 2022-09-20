@@ -229,10 +229,10 @@ News
   padding-right: 10px;
 }
 
-.news .article:last-child {
+/* .news .article:last-child {
   border-bottom: unset;
   margin-bottom: 5px;
-}
+} */
 
 .news a {
   display: inline;
@@ -251,6 +251,17 @@ News
   padding-bottom: 20px;
 }
 
+.news-searchbar {
+  padding-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.news-searchbar .news-quantity {
+  min-width: 315px;
+  max-width: 300px;
+}
+
 /*
 ==============================
 Weather/tables
@@ -267,13 +278,7 @@ table {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-  /* text-align: center; */
 }
-
-/* th {
-  margin: 10px;
-  padding:10px;
-} */
 
 td {
   margin: 10px;
