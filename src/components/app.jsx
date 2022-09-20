@@ -26,6 +26,14 @@ class App extends React.Component {
     })
   }
 
+  onNewsClick(e) {
+    console.log('event: ', e);
+  }
+
+  onSearchChange (e) {
+    console.log('onSearchChange: ', e);
+  }
+
   render() {
     return (
       <div id='main-body'>
@@ -35,7 +43,7 @@ class App extends React.Component {
 
         <section className='row'>
           <div className="grid">
-          <NewsList news={this.state.newsData}/></div>
+          <NewsList news={this.state.newsData} onClick={this.onNewsClick.bind(this)} onChange= {this.onSearchChange.bind(this)}/></div>
 
         </section>
       </div>
