@@ -8,7 +8,7 @@ $.ajaxPrefilter(function(settings, _, jqXHR) {
 
 var searchWeather = (query, cb) => {
   $.ajax({
-    url: 'https://newsapi.org/v2/everything?',
+    url: '',
     type: 'GET',
     data: { q: query },
     contentType: 'application/json',
