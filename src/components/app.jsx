@@ -3,6 +3,7 @@ import searchNews from '/Users/justinstendara/Documents/HackReactor/Personal Pro
 import NewsList from './newsList.jsx';
 
 import exampleWeatherData from '/Users/justinstendara/Documents/HackReactor/Personal Projects/homepage-react/homepage-react/src/exampleData/weatherAPIData.js'
+import WeatherList from '/Users/justinstendara/Documents/HackReactor/Personal Projects/homepage-react/homepage-react/src/components/weatherList.jsx'
 var React = require('react');
 
 class App extends React.Component {
@@ -50,8 +51,8 @@ class App extends React.Component {
         </section>
 
         <section className='row'>
-          <div className="grid">
-          <NewsList news={this.state.newsData} onClick={this.onNewsClick.bind(this)} onChange={this.onSearchChange.bind(this)}/></div>
+          <div className="grid"><NewsList news={this.state.newsData} onClick={this.onNewsClick.bind(this)} onChange={this.onSearchChange.bind(this)}/>
+          <WeatherList weather={exampleWeatherData}/></div>
 
         </section>
       </div>

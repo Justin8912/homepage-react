@@ -1,24 +1,4 @@
-var exampleWeatherData = {
-  "Transfer-Encoding": "chunked",
-  "Connection": "keep-alive",
-  "Vary": "Accept-Encoding",
-  "CDN-PullZone": "93447",
-  "CDN-Uid": "8fa3a04a-75d9-4707-8056-b7b33c8ac7fe",
-  "CDN-RequestCountryCode": "GB",
-  "CDN-ProxyVer": "1.02",
-  "CDN-RequestPullSuccess": "True",
-  "CDN-RequestPullCode": "200",
-  "CDN-CachedAt": "09/24/2022 23:20:52",
-  "CDN-EdgeStorageId": "946",
-  "CDN-Status": "200",
-  "CDN-RequestId": "c11cd0b550b6838a08e00baf7fd187cc",
-  "CDN-Cache": "HIT",
-  "Cache-Control": "public, max-age=180",
-  "Content-Type": "application/json",
-  "Date": "Sat, 24 Sep 2022 23:20:53 GMT",
-  "Server": "BunnyCDN-FR-951"
-}
-Response Body
+var exampleWeatherData =
 {
     "location": {
         "name": "Austin",
@@ -1048,6 +1028,6 @@ Response Body
             }
         ]
     }
-}
+  }
 
 export default exampleWeatherData;
