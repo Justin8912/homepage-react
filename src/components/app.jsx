@@ -18,6 +18,7 @@ class App extends React.Component {
     }
   }
 
+  // Event handlers
   handleNewsSearch(data) {
     data.articles = data.articles.slice(0, this.state.desiredNewsArticles);
     this.setState({
@@ -42,6 +43,7 @@ class App extends React.Component {
       newsQuery: e.target.value,
     })
   }
+
 
   render() {
     return (
