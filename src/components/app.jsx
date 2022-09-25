@@ -5,6 +5,8 @@ import NewsList from './newsList.jsx';
 import exampleWeatherData from '/Users/justinstendara/Documents/HackReactor/Personal Projects/homepage-react/homepage-react/src/exampleData/weatherAPIData.js'
 import WeatherList from '/Users/justinstendara/Documents/HackReactor/Personal Projects/homepage-react/homepage-react/src/components/weatherList.jsx'
 import searchWeather from '/Users/justinstendara/Documents/HackReactor/Personal Projects/homepage-react/homepage-react/src/lib/weatherAPI.js'
+
+import Banner from './banner.jsx';
 var React = require('react');
 
 class App extends React.Component {
@@ -16,7 +18,7 @@ class App extends React.Component {
       weatherData: undefined,
       newsData: {articles: []},
       newsQuery: 'AI',
-      desiredNewsArticles: 5
+      desiredNewsArticles: 2
     }
   }
 
@@ -70,9 +72,7 @@ class App extends React.Component {
   render() {
     return (
       <div id='main-body'>
-        <section id='heading'>
-
-        </section>
+        <Banner/>
 
         <section className='row'>
           <div className="grid"><NewsList news={this.state.newsData} onClick={this.onNewsClick.bind(this)} onChange={this.onSearchChange.bind(this)}/>
