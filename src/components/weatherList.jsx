@@ -2,15 +2,10 @@ import WeatherEntry from '/Users/justinstendara/Documents/HackReactor/Personal P
 import $ from 'jquery';
 var React = require('react');
 
-
-
 var WeatherList = (props) => {
   var divStyle = {
     'maxHeight': $('.col-2-3').height()
   }
-
-  console.log(divStyle.maxHeight);
-  console.log($('.col-2-3').height())
   return (
     <section className="col-1-3 weather" style={divStyle}>
       <h3>Weather</h3>
@@ -28,13 +23,20 @@ var WeatherList = (props) => {
               <td>Weather</td>
               <td>Time</td>
               <td>Temp</td>
-              <td>Chance of Rain</td>
+              <td>Feels like</td>
             </tr>
             {props.weather.forecast.forecastday[0].hour.map((time, idx) =>
-              <WeatherEntry key={idx} time = {time.time.slice(11)} temp={Math.round(time.temp_f)} iconLink={time.condition.icon} feelsLike={Math.round(time.feelslike_f)} uv={time.uv}/>
+              <WeatherEntry key={idx}
+              time = {time.time.slice(11)}
+              temp={Math.round(time.temp_f)}
+              iconLink={time.condition.icon}
+              feelsLike={Math.round(time.feelslike_f)}
+              chanceOfRain={time.chance_of_rain}/>
             )}
           </tbody>
         </table>
+        <input onChange={props.weatherLocation} type='text' placeholder='Dont live in Austin?'></input>
+        <button onClick={props.weatherClick}>Update</button>
     </section>
   )
 }

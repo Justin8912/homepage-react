@@ -4,6 +4,7 @@ import NewsList from './newsList.jsx';
 
 import exampleWeatherData from '/Users/justinstendara/Documents/HackReactor/Personal Projects/homepage-react/homepage-react/src/exampleData/weatherAPIData.js'
 import WeatherList from '/Users/justinstendara/Documents/HackReactor/Personal Projects/homepage-react/homepage-react/src/components/weatherList.jsx'
+import searchWeather from '/Users/justinstendara/Documents/HackReactor/Personal Projects/homepage-react/homepage-react/src/lib/weatherAPI.js'
 var React = require('react');
 
 class App extends React.Component {
@@ -11,7 +12,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      weatherData: null,
+      weatherLocation: 'Austin',
+      weatherData: undefined,
       newsData: {articles: []},
       newsQuery: 'AI',
       desiredNewsArticles: 5
@@ -25,9 +27,19 @@ class App extends React.Component {
       newsData: data
     })
   }
+
+  handleWeatherSearch(data) {
+    this.setState({
+      weatherData: data,
+    })
+  }
   componentDidMount() {
     searchNews(this.state.newsQuery, (data) => {
       this.handleNewsSearch(data);
+    })
+
+    searchWeather(this.state.weatherLocation, (data) => {
+      this.handleWeatherSearch(data);
     })
   }
 
@@ -38,9 +50,19 @@ class App extends React.Component {
   }
 
   onSearchChange (e) {
-    console.log('onSearchChange: ', e.target.value);
     this.setState({
       newsQuery: e.target.value,
+    })
+  }
+
+  onWeatherClick(e) {
+    searchWeather(this.state.weatherLocation, (data) => {
+      this.handleWeatherSearch(data);
+    })
+  }
+  weatherLocation (e) {
+    this.setState({
+      weatherLocation: e.target.value,
     })
   }
 
@@ -54,7 +76,10 @@ class App extends React.Component {
 
         <section className='row'>
           <div className="grid"><NewsList news={this.state.newsData} onClick={this.onNewsClick.bind(this)} onChange={this.onSearchChange.bind(this)}/>
-          <WeatherList weather={exampleWeatherData}/></div>
+          {this.state.weatherData !== undefined &&
+            <WeatherList weather={this.state.weatherData} weatherLocation={this.weatherLocation.bind(this)} weatherClick={this.onWeatherClick.bind(this)}/>
+          }
+          </div>
 
         </section>
       </div>

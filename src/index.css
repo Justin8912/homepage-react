@@ -239,6 +239,7 @@ News
   color:rgb(200, 200, 200);
 }
 
+.weather tr:last-child,
 .news .article{
   border-bottom: 1px solid rgb(100, 100, 100);
   margin-bottom: 20px;
@@ -260,7 +261,7 @@ News
   text-align: center;
 }
 
-.center-news button {
+button {
   border: inset 1px #c36b1ee4;
   background-color: #f98927e4;
   color: rgb(229, 229, 229);
@@ -324,6 +325,10 @@ tr:nth-child(1){
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.weather button {
+  margin-bottom: 10px;
 }
 
 /*

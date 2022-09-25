@@ -6,11 +6,11 @@ $.ajaxPrefilter(function(settings, _, jqXHR) {
   jqXHR.setRequestHeader('Authorization', weatherAPI_KEY);
 });
 
-var searchWeather = (query, cb) => {
+var searchWeather = (location, cb) => {
   $.ajax({
-    url: '',
+    url: 'http://api.weatherapi.com/v1/forecast.json?',
     type: 'GET',
-    data: { q: query },
+    data: { key: weatherAPI_KEY, q: location, days: 1, aqi: 'yes', alerts: 'no'},
     contentType: 'application/json',
     success: cb,
     error: function(error) {
@@ -20,4 +20,4 @@ var searchWeather = (query, cb) => {
 };
 
 // Have not configured this yet.
-// export default searchWeather;
+export default searchWeather;
