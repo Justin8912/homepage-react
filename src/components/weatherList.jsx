@@ -7,12 +7,18 @@ var WeatherList = (props) => (
     <h3>Weather</h3>
       <table>
         <tbody>
-          <WeatherEntry/>
+          <WeatherEntry current={props.weather.current}/>
           <tr>
-            <td colspan="5"><h4>Today's weather</h4></td>
+            <td colSpan="5"><h4>Today's weather</h4></td>
           </tr>
-          {props.weather.forecast.forecastday.map((time, idx) =>
-            <WeatherEntry/>
+          <tr>
+            <td>Weather</td>
+            <td>Time</td>
+            <td>Temp</td>
+            <td>Chance of Rain</td>
+          </tr>
+          {props.weather.forecast.forecastday[0].hour.map((time, idx) =>
+            <WeatherEntry key={idx} time = {time.time.slice(11)} temp={Math.round(time.temp_f)} iconLink={time.condition.icon} feelsLike={time.feelslike_f} chanceOfRain={time.chance_of_rain} uv={time.uv}/>
           )}
         </tbody>
       </table>
